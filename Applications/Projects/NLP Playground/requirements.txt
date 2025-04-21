@@ -1,0 +1,9 @@
+streamlit
+nltk
+spacy
+scikit-learn
+textblob
+vaderSentiment
+textstat
+transformers
+torch
