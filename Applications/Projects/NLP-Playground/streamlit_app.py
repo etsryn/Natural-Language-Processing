@@ -173,7 +173,11 @@ with tab4:
 
     num_sents = st.slider("Summary sentences:", 1, 5, 3, key="sum_slider")
     if st.button("Summarize", key="disc_sum"):
-        summary = summarizer(text, max_length=num_sents*30, min_length=num_sents*10)
+        input_length = len(text.split())
+
+        max_len = min(num_sents * 30, input_length)
+        min_len = min(num_sents * 10, max_len // 2)
+        summary = summarizer(text, max_length=max_len, min_length=min_len, do_sample=False)
         st.write(summary[0]['summary_text'])
 
 # ====== Tab 5: Pragmatic ======
