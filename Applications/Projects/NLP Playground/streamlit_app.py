@@ -12,6 +12,8 @@ from nltk.tokenize import word_tokenize, sent_tokenize, regexp_tokenize
 from nltk.corpus import stopwords, wordnet
 from nltk.stem import PorterStemmer, SnowballStemmer, LancasterStemmer, WordNetLemmatizer
 import spacy
+import spacy.cli
+spacy.cli.download("en_core_web_sm")
 from spacy import displacy
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from transformers import pipeline
@@ -24,7 +26,6 @@ from transformers import pipeline
 @st.cache_resource
 def load_nltk_data():
     nltk.download('punkt')
-    nltk.download('punkt_tab')
     nltk.download('stopwords')
     nltk.download('wordnet')
     nltk.download('averaged_perceptron_tagger')
