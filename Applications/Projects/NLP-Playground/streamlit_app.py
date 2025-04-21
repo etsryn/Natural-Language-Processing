@@ -13,7 +13,12 @@ from nltk.corpus import stopwords, wordnet
 from nltk.stem import PorterStemmer, SnowballStemmer, LancasterStemmer, WordNetLemmatizer
 import spacy
 import spacy.cli
-spacy.cli.download("en_core_web_sm")
+from spacy.cli import download
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 from spacy import displacy
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from transformers import pipeline
